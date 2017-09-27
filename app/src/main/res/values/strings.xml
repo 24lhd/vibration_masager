@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">eco_vibrate_massage</string>
+    <string name="start_massa">START</string>
+    <string name="stop_massa">STOP</string>
+</resources>
