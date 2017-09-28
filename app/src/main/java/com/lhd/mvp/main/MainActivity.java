@@ -65,8 +65,9 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View view) {
         Config.isRunning = true;
         int positon = Config.rungPosition(this, Integer.parseInt((String) view.getTag()));
-        updateState(positon);
+
         if (Config.isRunning) {
+            updateState(positon);
             txtState.setText(getResources().getText(R.string.stop_massa));
             Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anim_vibration_free);
             switch (positon) {
@@ -96,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
             relativeLayout.clearAnimation();
             txtState.clearAnimation();
             txtState.setText(getResources().getText(R.string.stop_massa));
+            updateState(0);
         }
     }
 
@@ -105,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 btn.setBackground(getResources().getDrawable(R.drawable.shape_btn_unselect));
             }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN && positon != 0) {
             btnItems[positon - 1].setBackground(getResources().getDrawable(R.drawable.shape_btn_select));
         }
     }
@@ -118,11 +120,13 @@ public class MainActivity extends AppCompatActivity {
             view.setTag("1");
             onClick(view);
         } else Config.stopRung();
-        if (Config.isRunning)
+        if (Config.isRunning) {
             txtState.setText(getResources().getText(R.string.stop_massa));
-        else {
+            updateState(1);
+        } else {
             relativeLayout.clearAnimation();
             txtState.setText(getResources().getText(R.string.start_massa));
+            updateState(0);
 //            txtState.clearAnimation();
 
         }

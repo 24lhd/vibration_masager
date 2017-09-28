@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Vibrator;
-import android.util.Log;
-import android.widget.Toast;
 
 /**
  * Created by d on 9/26/2017.
@@ -28,12 +26,6 @@ public class Config {
         vibrator.cancel();
     }
 
-    //    public static void run() {
-//        isRunning = !isRunning;
-//        if (isRunning) {
-//
-//        }
-//    }
     public static void goToStoreByPackageName(Context context) {
         Uri uri = Uri.parse("market://details?id=" + context.getPackageName());
         Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
@@ -51,27 +43,21 @@ public class Config {
     }
 
     public static int rungPosition(Context context, int positon) {
-        Toast.makeText(context, "" + positon, Toast.LENGTH_SHORT).show();
         if (isRunning) {
             switch (positon) {
                 case 1:
-                    Log.e("leuleu", " 500, 1");
                     chayRung(context, 1000, 1);
                     return 1;
                 case 2:
-                    Log.e("leuleu", "250, 250");
                     chayRung(context, 250, 250);
                     return 2;
                 case 3:
-                    Log.e("leuleu", " 500, 250");
                     chayRung(context, 500, 250);
                     return 3;
                 case 4:
-                    Log.e("leuleu", " 500, 500");
                     chayRung(context, 500, 500);
                     return 4;
                 case 5:
-                    Log.e("leuleu", "1000, 500");
                     chayRung(context, 1000, 500);
                     return 5;
             }
@@ -82,6 +68,4 @@ public class Config {
 
         return positon;
     }
-
-
 }

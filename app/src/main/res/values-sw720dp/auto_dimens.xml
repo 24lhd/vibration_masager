@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<dimen name="h_btn_size">96.00dp</dimen>
-	<dimen name="w_btn_size">144.00dp</dimen>
+	<dimen name="h_btn_size">86.40dp</dimen>
+	<dimen name="w_btn_size">115.20dp</dimen>
 	<dimen name="w_icon_start">576.00dp</dimen>
 </resources>
